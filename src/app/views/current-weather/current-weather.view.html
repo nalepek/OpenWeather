@@ -1,1 +1,31 @@
-<div>CURRENT WEATHER VIEW WORKS</div>
+<div>CURRENT WEATHER</div>
+
+<div *ngIf="weather$ | async as weather">
+  <div>name: {{ weather.name }}</div>
+
+  <div>weather</div>
+  <div>id: {{ weather.weather[0].id }}</div>
+  <div>main: {{ weather.weather[0].main }}</div>
+  <div>description: {{ weather.weather[0].description }}</div>
+  <div>icon: {{ weather.weather[0].icon }}</div>
+
+  <div>temp: {{ weather.main.temp }}</div>
+  <div>feels_like: {{ weather.main.feels_like }}</div>
+  <div>temp_min: {{ weather.main.temp_min }}</div>
+  <div>temp_max: {{ weather.main.temp_max }}</div>
+  <div>pressure: {{ weather.main.pressure }}</div>
+  <div>humidity: {{ weather.main.humidity }}</div>
+  <div>sea_level: {{ weather.main.sea_level }}</div>
+  <div>visibility: {{ weather.visibility }}</div>
+
+  <div>wind speed: {{ weather.wind.speed }}</div>
+  <div>wind deg: {{ weather.wind.deg }}</div>
+  <div>wind gust: {{ weather.wind.gust }}</div>
+
+  <div>rain: {{ weather.rain | json }}</div>
+
+  <div>clouds: {{ weather.clouds.all }}</div>
+
+  <div>timezone: {{ weather.timezone }}</div>
+  <div>dt: {{ weather.dt }}</div>
+</div>

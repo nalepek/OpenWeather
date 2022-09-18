@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GeolocationService } from '@shared/index';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  constructor(private geolocationService: GeolocationService) {
+    this.geolocationService.fetchGeolocation$().subscribe();
+  }
+
   title = 'open-weather';
 }
