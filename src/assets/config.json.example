@@ -1,4 +1,6 @@
 {
     "apiBaseUrl": "https://api.openweathermap.org/data/2.5",
-    "apiKey": "yourapikey"
+    "apiKey": "yourapikey",
+    "units": "metric",
+    "lang": "en"
 }

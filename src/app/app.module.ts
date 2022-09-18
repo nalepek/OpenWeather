@@ -4,29 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfigService } from '@shared/services/config/config.service';
+import { ConfigService, CoreModule } from './core';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule],
   providers: [
     {
       provide: APP_INITIALIZER,
       multi: true,
       deps: [ConfigService],
       useFactory: (configService: ConfigService) => {
-        return() => {
+        return () => {
           return configService.loadConfig();
         }
       }
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
